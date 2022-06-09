@@ -8,4 +8,10 @@ src/xstyled.config.ts(27,43): error TS4023: Exported variable 'styled' has or is
 
 This is because the `XStyled` interface is not exported from `@xstyled/styled-components`.
 
-[TypeScript issue](https://github.com/microsoft/TypeScript/issues/29808) (not specific to xstyled).
+[Fork with fix](https://github.com/nerdyman/xstyled)
+
+Related Issues:
+
+- [pnpm 3396](https://github.com/pnpm/pnpm/issues/3396)
+- [typescript 29808](https://github.com/microsoft/TypeScript/issues/29808)
+- [typescript 42873](https://github.com/microsoft/TypeScript/issues/42873)

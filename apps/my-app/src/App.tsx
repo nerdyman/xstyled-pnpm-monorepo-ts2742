@@ -1,4 +1,4 @@
-import { Button, Preflight, ThemeProvider } from '@my-cool-lib/ui';
+import { Button, Preflight, ThemeProvider } from '@my-cool-lib/ui-styled-components-fixed';
 
 import './App.css';
 
