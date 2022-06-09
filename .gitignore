@@ -1,0 +1,12 @@
+*.log
+*.ignore
+.cache
+.DS_Store
+.nyc_output
+dist
+coverage
+node_modules
+package-lock.json
+storybook-static
+.eslintcache
+*.log

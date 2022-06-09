@@ -1,0 +1,187 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:eslint-comments/recommended",
+    // Import
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    // React
+    "plugin:react/recommended",
+    // @NOTE This should be included in individual .eslintrc configs due to a conflict with `next/core-web-vitals`
+    // "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    // TypeScript
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+
+  "plugins": ["import", "react", "jsx-a11y", "@typescript-eslint"],
+
+  "settings": {
+    "react": { "version": "detect" },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {},
+      "typescript": {
+        "project": ["apps/*/tsconfig.json", "libs/*/tsconfig.json"]
+      }
+    }
+  },
+
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+
+  "globals": {
+    "globalThis": true
+  },
+
+  "overrides": [
+    {
+      "files": ["**/*.stories.js", "**/*.stories.jsx", "**/*.stories.ts", "**/*.stories.tsx"],
+      "rules": {
+        "import/no-anonymous-default-export": "off",
+        "import/no-default-export": "off",
+        "import/no-extraneous-dependencies": "off"
+      }
+    },
+    {
+      "files": ["**/*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": 0
+      }
+    },
+    {
+      "files": ["**/*.{test,spec,stories}.{ts,tsx}"],
+      "rules": {
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "react/display-name": "off"
+      }
+    }
+  ],
+
+  "rules": {
+    // Base
+    "array-callback-return": "error",
+    "eqeqeq": ["error", "always"],
+    "global-require": "error",
+    "lines-between-class-members": ["warn", "always", { "exceptAfterSingleLine": true }],
+    "linebreak-style": ["error", "unix"],
+    "max-depth": ["warn", 4],
+    "no-alert": "error",
+    "no-console": "warn",
+    "no-debugger": "error",
+    "no-delete-var": "error",
+    "no-else-return": "warn",
+    "no-empty": "error",
+    "no-eval": "error",
+    "no-negated-condition": "warn",
+    "no-param-reassign": "warn",
+    "no-restricted-imports": ["error", { "patterns": ["../../*"] }],
+    "no-return-await": "warn",
+    "no-unreachable": "error",
+    "no-unused-vars": "off",
+    "no-useless-escape": "warn",
+    "no-var": "error",
+    "padded-blocks": [
+      "warn",
+      {
+        "blocks": "never",
+        "classes": "never",
+        "switches": "never"
+      },
+      {
+        "allowSingleLineBlocks": true
+      }
+    ],
+    "padding-line-between-statements": [
+      "warn",
+      {
+        "blankLine": "always",
+        "prev": ["*"],
+        "next": ["function", "multiline-expression", "return"]
+      },
+      {
+        "blankLine": "always",
+        "prev": ["multiline-expression"],
+        "next": ["*"]
+      }
+    ],
+    "prefer-const": "error",
+    "valid-jsdoc": 0,
+
+    // TypeScript
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-dynamic-delete": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-require-imports": "warn",
+    "@typescript-eslint/no-shadow": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "@typescript-eslint/no-use-before-define": "warn",
+    "@typescript-eslint/no-unused-expressions": "error",
+
+    // ESLint Comments
+    "eslint-comments/disable-enable-pair": 0,
+    "eslint-comments/no-unused-disable": "warn",
+    "eslint-comments/no-unused-enable": "warn",
+    "eslint-comments/no-unlimited-disable": "warn",
+
+    // Imports
+    "import/default": "off",
+    "import/newline-after-import": "warn",
+    "import/no-anonymous-default-export": "warn",
+    "import/no-default-export": "warn",
+    "import/no-cycle": ["warn", { "maxDepth": 1 }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.*",
+          "**/*.spec.*",
+          "**/test-utils/**",
+          "**/__tests__/**",
+          "**/mocks/**"
+        ],
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+    "import/no-named-as-default": "off",
+    "import/no-self-import": "error",
+    "import/no-unresolved": [
+      "error",
+      {
+        "caseSensitive": true
+      }
+    ],
+
+    // React
+    "react/jsx-indent": 0,
+    "react/jsx-indent-props": 0,
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0
+  }
+}

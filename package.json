@@ -1,0 +1,54 @@
+{
+  "name": "my-cool-lib",
+  "version": "0.0.1",
+  "description": "",
+  "license": "UNLICENCED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "packageManager": "pnpm@7.1.6",
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "bootstrap": "./.config/corepack.sh && corepack disable && corepack enable && corepack prepare --activate",
+    "clean": "rm -rfv ./.modules-cache ./**/*.tsbuildinfo ./node_modules ./{apps,packages}/*/{.cache,.next,node_modules,out,build,dist}",
+    "config:git": "git config blame.ignoreRevsFile .git-blame-ignore-revs && git config core.autocrlf false && git config core.eol lf && git config core.ignorecase false",
+    "ci": "pnpm config set store-dir .modules-cache && pnpm i --frozen-lockfile --ignore-scripts --prefer-offline",
+    "dx": "npm run bootstrap && pnpm run config:git && pnpm install --frozen-lockfile && pnpm run prepare && pnpm install-completion",
+    "lint": "eslint",
+    "prepare": "husky install",
+    "prettier": "prettier \"**/*.{css,js,jsx,html,prettierrc,ts,tsx,json,md}\"",
+    "prettier:write": "pnpm run prettier --write",
+    "prettier:check": "pnpm run prettier --check"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "pnpm run lint --cache --fix",
+    "*.{css,html,js,json,jsx,ts,tsx,md,yaml,yml}": "pretty-quick --staged"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "eslint": "^8.16.0",
+    "eslint-import-resolver-node": "^0.3.6",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2",
+    "pretty-quick": "^3.1.3",
+    "typescript": "^4.7.2"
+  }
+}

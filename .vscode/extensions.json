@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "chrislajoie.vscode-modelines",
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "eamodio.gitlens",
+    "eg2.vscode-npm-script",
+    "esbenp.prettier-vscode",
+    "exiasr.hadolint",
+    "gitlab.gitlab-workflow",
+    "mikestead.dotenv",
+    "ms-vscode-remote.remote-wsl",
+    "ms-azuretools.vscode-docker",
+    "ms-vsliveshare.vsliveshare",
+    "orta.vscode-jest",
+    "redhat.vscode-yaml",
+    "silvenon.mdx"
+  ]
+}

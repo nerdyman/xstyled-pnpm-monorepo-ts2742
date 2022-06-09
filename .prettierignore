@@ -1,0 +1,13 @@
+.modules-cache
+.next
+.pnpm
+node_modules
+coverage
+dist
+out
+storybook-static
+.cache
+build
+pnpm-lock.yaml
+*.ignore
+generated
